@@ -13,14 +13,7 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       <Header />
-      <UMBreadcrumb
-        items={[
-          {
-            label: `${base}`,
-            link: `/${base}`,
-          },
-        ]}
-      />
+
       {children}
     </Content>
   );

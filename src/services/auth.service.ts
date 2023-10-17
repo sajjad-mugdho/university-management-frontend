@@ -1,24 +1,25 @@
-import { authToken } from "@/app/constants/storageKey";
+import { authKey } from "@/app/constants/storageKey";
 import { decodedToken } from "@/utils/jwt";
-import { getFormLocalStorage, setToLocalStorage } from "@/utils/local-storage";
+import { getFromLocalStorage, setToLocalStorage } from "@/utils/local-storage";
 
 export const storeUserInfo = ({ accessToken }: { accessToken: string }) => {
-  return setToLocalStorage(authToken, accessToken as string);
+  return setToLocalStorage(authKey, accessToken as string);
 };
 
 export const getUserInfo = () => {
-  const authTokenData = getFormLocalStorage(authToken);
-  if (authTokenData) {
-    const decode = decodedToken(authTokenData);
-    return decode;
+  const authToken = getFromLocalStorage(authKey);
+  // console.log(authToken);
+  if (authToken) {
+    const decodedData = decodedToken(authToken);
+    return decodedData;
   } else {
     return "";
   }
 };
 
 export const isLoggedIn = () => {
-  const authTokenData = getFormLocalStorage(authToken);
-  return !!authTokenData;
+  const authToken = getFromLocalStorage(authKey);
+  return !!authToken;
 };
 
 export const removeUserInfo = (key: string) => {

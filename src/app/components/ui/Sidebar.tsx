@@ -9,7 +9,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { USER_ROLE } from "@/app/constants/role";
+
 import { sideBarItems } from "@/app/constants/sidebarItems";
 import { getUserInfo } from "@/services/auth.service";
 type MenuItem = Required<MenuProps>["items"][number];
