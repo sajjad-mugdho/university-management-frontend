@@ -1,36 +1,24 @@
-"use client";
-
-import Form from "@/app/components/form/Form";
-import FormInput from "@/app/components/form/FormInput";
+import UMBreadCrumb from "@/app/components/ui/UMBreadcrumb";
 import { Button } from "antd";
+import Link from "next/link";
 
-const ResetPassPage = () => {
-  const onSubmit = async (data: any) => {
-    try {
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+const ManageDepartmentPage = () => {
   return (
-    <div
-      style={{ margin: "100px 0", display: "flex", justifyContent: "center" }}
-    >
-      <Form submitHandler={onSubmit}>
-        <h3 style={{ marginBottom: "10px" }}>Reset Password</h3>
-        <div style={{ margin: "5px 0" }}>
-          <FormInput name="oldPassword" label="Old password" type="password" />
-        </div>
-        <div style={{ margin: "5px 0" }}>
-          <FormInput name="newPassword" label="New password" type="password" />
-        </div>
-        <Button type="primary" htmlType="submit">
-          submit
-        </Button>
-      </Form>
+    <div>
+      <UMBreadCrumb
+        items={[
+          {
+            label: "super_admin",
+            link: "/super_admin",
+          },
+        ]}
+      />
+      <h1>Department List</h1>
+      <Link href="/super_admin/department/create">
+        <Button type="primary">Create</Button>
+      </Link>
     </div>
   );
 };
 
-export default ResetPassPage;
+export default ManageDepartmentPage;
